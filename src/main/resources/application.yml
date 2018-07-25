@@ -1,0 +1,22 @@
+info:
+  name: "@project.artifactId@"
+  version: "@project.version@"
+  description: "@project.description@"
+  running-profile: ${spring.profiles.active}
+  
+server:
+  port: 9000
+  
+eureka:
+  dashboard:
+    path: /eureka-dashboard # Path to the Eureka Dashboard ('/' is for Spring Boot Admin Dashboard)
+  instance:
+      hostname: localhost
+      appname: ${spring.application.name}
+      instanceId: ${spring.application.name}:${random.value}
+  client:
+      fetchRegistry: false # Important : Required at 'true' for Spring Boot Admin server good working
+      registerWithEureka: false # Set at 'true' for Spring Boot Admin self-supervision
+  server: 
+      waitTimeInMsWhenSyncEmpty: 0
+      enable-self-preservation: false
